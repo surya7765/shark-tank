@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Reggae+One&display=swap");
+
+.nav-link {
+  color: #0b8724 !important;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.light-bg {
+  background-color: white;
+}
+
+.bgImage {
+  background: linear-gradient(rgba(27, 30, 27, 0.332), rgba(24, 33, 25, 0.332)),
+    url("../../assets/header.jpg") no-repeat;
+  background-position: top;
+  background-size: cover;
+  height: 70vh;
+}
+
+.hero-text {
+  font-family: "Inter";
+  font-weight: 800;
+  font-size: 4.5rem;
+  text-align: center;
+  color: white;
+}
+
+.head-input {
+  background: #d9d9d9;
+  opacity: 0.5 !important;
+  border-radius: 15px !important;
+  width: 300px !important;
+  height: 50px !important;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.head-button {
+  border-radius: 15px !important;
+  width: 300px !important;
+  height: 50px !important;
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 39px;
+  color: #ffffff;
+}
+
+.box {
+  height: 170px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 1px 2px 3px #d6d6d6;
+  margin: 10px;
+  text-align: center;
+  padding: 10px;
+}
+
+.box-icon{
+  color:#0b8724;
+  font-size:4rem;
+}
+
+.box-title{
+  color: rgba(11, 135, 36, 0.7);
+}
+
+.box-content{
+  color: rgba(123, 233, 145, 0.7);
+}
