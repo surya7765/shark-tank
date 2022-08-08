@@ -4,14 +4,17 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import path from "path";
 import router from "./routes/Route.js";
+import cors from "cors"
 const __dirname = path.resolve();
 
 // Middlewarers
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
 
 app.use('/',router);
 // app.use("/uploads", express.static("uploads"));
+
 
 // Database
 mongoose.connect("mongodb://localhost:27017/job-kart", {

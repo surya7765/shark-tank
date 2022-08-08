@@ -1,14 +1,15 @@
 import React from 'react'
 import './homepage.css'
-import logo from "../../assets/JobKart.png";
+import logo from "../../../assets/JobKart.png";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <div className='light-bg'>
-      <nav className="container navbar navbar-expand-lg navbar-light">
-        <a className="navbar-brand" href="#">
+    <div className="light-bg">
+      <nav className="container navbar navbar-expand-lg navbar-light ">
+        <Link className="navbar-brand" to="/">
           <img src={logo} className="App-logo" alt="logo" />
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -23,14 +24,19 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Login
-              </a>
+              <Link to="/jobs" className="nav-link">
+                Jobs
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link to="/auth" className="nav-link">
+                Login
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/auth" className="nav-link">
                 Register
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

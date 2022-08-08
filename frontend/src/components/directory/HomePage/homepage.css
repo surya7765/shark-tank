@@ -12,10 +12,17 @@
 
 .bgImage {
   background: linear-gradient(rgba(27, 30, 27, 0.332), rgba(24, 33, 25, 0.332)),
-    url("../../assets/header.jpg") no-repeat;
+    url("../../../assets/header.jpg") no-repeat;
   background-position: top;
   background-size: cover;
   height: 70vh;
+}
+
+.head-text{
+  font-family: "Inter";
+  font-weight: 800;
+  color: #0b8724 !important;
+  font-size: 3rem;
 }
 
 .hero-text {
@@ -70,4 +77,29 @@
 
 .box-content{
   color: rgba(123, 233, 145, 0.7);
+}
+
+
+/* Guide Styling */
+.guide-style .work-process {
+  text-align: center;
+}
+.guide-style .work-process h4 {
+  font-size: 25px;
+  color: #26ae61;
+}
+.guide-style .btn {
+  border-radius: 50px;
+  font-size: 20px;
+  background-color: #26ae61;
+  color: #fff;
+  font-weight: 600;
+}
+.guide-style .btn:hover {
+  background-color: #46de88;
+  color: #fff;
+}
+.guide-style .process-icon img {
+  height: 60px;
+  margin-bottom: 20px;
 }

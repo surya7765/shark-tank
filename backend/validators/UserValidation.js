@@ -1,7 +1,7 @@
 let validators = {};
 
 validators.validateName = (name) => {
-  if (name.length === 0) {
+  if (name?.length === 0) {
     let err = new Error("Name should not be empty");
     err.status = 400;
     throw err;
@@ -21,8 +21,8 @@ validators.validateEmail = (email) => {
 };
 
 validators.validatePassword = (pass) => {
-  if (pass.length < 8) {
-    let err = new Error("Password should be atleast 8 characters long");
+  if (pass?.length < 8) {
+    let err = new Error("Password should be at least 8 characters long");
     err.status = 400;
     throw err;
   }
@@ -30,7 +30,7 @@ validators.validatePassword = (pass) => {
 };
 
 validators.validatePhone = (phone) => {
-  if (phone.length !== 10) {
+  if (phone?.length !== 10) {
     let err = new Error("Phone number should be at least 10 number");
     err.status = 400;
     throw err;

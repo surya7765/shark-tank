@@ -1,7 +1,7 @@
 import path from "path";
 import multer from "multer";
-const __dirname = path.resolve();
-console.log(path.join(__dirname, "./uploads/"));
+// const __dirname = path.resolve();
+// console.log(path.join(__dirname, "./uploads/"));
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
