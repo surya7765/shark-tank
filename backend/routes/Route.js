@@ -7,7 +7,7 @@ import upload from "../middleware/UploadPDF.js";
 
 
 // User register, login, geting user, updating user 
-router.post("/register",  AuthController.register);
+router.post("/register",  upload.single('resume_pdf'), AuthController.register);
 router.post("/login", AuthController.login);
 router.get("/user/:_id",protect, AuthController.getUser);
 router.patch("/user/:_id", protect, AuthController.updateUser);

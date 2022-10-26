@@ -11,30 +11,31 @@ Registering user if email id does not exists in the database.
 */
 const register = asyncHandler(async (req, res) => {
   // console.log(req.body);
+  const userData = JSON.parse(req.body.data);
   try {
     if (
-      validators.validateName(req.body.name) &&
-      validators.validateEmail(req.body.email) &&
-      validators.validatePassword(req.body.password) &&
-      validators.validatePhone(req.body.phoneno)
+      validators.validateName(userData.name) &&
+      validators.validateEmail(userData.email) &&
+      validators.validatePassword(userData.password) &&
+      validators.validatePhone(userData.phoneno)
     ) {
-      const user = await UserModel.findOne({ email: req.body.email });
+      const user = await UserModel.findOne({ email: userData.email });
 
       // Hash password
       const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(req.body.password,salt);
+      const hashedPassword = await bcrypt.hash(userData.password,salt);
 
       // console.log(user);
       if (!user) {
-        // const user = await UserModel.create(req.body);
+        // const user = await UserModel.create(userData);
         const createUser = await UserModel.create({
-          name: req.body.name,
-          email: req.body.email,
+          name: userData.name,
+          email: userData.email,
           password: hashedPassword,
-          phoneno: req.body.phoneno,
-          address: req.body.address,
-          workExp: req.body.workExp,
-          skills: req.body.skills,
+          phoneno: userData.phoneno,
+          address: userData.address,
+          workExp: userData.workExp,
+          skills: userData.skills,
         });
         if (!createUser) {
           let err = new Error("Registration failed!");

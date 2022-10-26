@@ -65,7 +65,7 @@ const RegisterAuthPage = () => {
 
   let axiosConfig = {
     headers: {
-      "Content-Type": "application/json;charset=UTF-8",
+      "Content-Type": "multipart/form-data; charset=UTF-8",
       "Access-Control-Allow-Origin": "*",
     },
   };
@@ -90,9 +90,13 @@ const RegisterAuthPage = () => {
       },
       skills: skills,
     };
+    const resume = document.getElementById('resume');
+    const formData = new FormData();
+    formData.append('data', JSON.stringify(data));
+    formData.append('resume_pdf', resume.files[0]);
     setLoading(true);
     await axios
-      .post("http://127.0.0.1:4000/register", data, axiosConfig)
+      .post("http://127.0.0.1:4000/register", formData, axiosConfig)
       .then((res) => {
         setLoading(false);
         setMessage(res);
@@ -124,7 +128,7 @@ const RegisterAuthPage = () => {
       {message ? (
         error ? (
           <div className="alert alert-danger" role="alert">
-            {message.response.data.message}
+            {message.data.message}
           </div>
         ) : (
           <div className="alert alert-success" role="alert">
@@ -149,7 +153,7 @@ const RegisterAuthPage = () => {
         ) : (
           <div>
             <h1 className="text-center">Register</h1>
-            <form onSubmit={registerUser}>
+            <form onSubmit={registerUser} enctype="multipart/form-data">
               <div className="form-group">
                 <input
                   value={name}
@@ -276,6 +280,16 @@ const RegisterAuthPage = () => {
                   id="skills"
                   placeholder="Skills (Should be comma seperated)"
                 />
+              </div>
+              <div className="form-group">
+                <input
+                  type="file"
+                  accept=".pdf"
+                  className="form-control"
+                  id="resume"
+                  name="resume_pdf"
+                />
+                <label for="resume">Upload resume (Only .pdf files are supported)</label>
               </div>
               <button type="submit" className="btn btn-success">
                 Register
