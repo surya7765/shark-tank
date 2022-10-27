@@ -21,7 +21,8 @@ validators.validateEmail = (email) => {
 };
 
 validators.validatePassword = (pass) => {
-  if (pass.length < 8) {
+  var paswd=  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,15}$/;
+  if (pass.value !== passw) {
     let err = new Error("Password should be atleast 8 characters long");
     err.status = 400;
     throw err;
