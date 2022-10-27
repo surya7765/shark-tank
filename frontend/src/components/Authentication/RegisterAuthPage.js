@@ -118,7 +118,7 @@ const RegisterAuthPage = () => {
         if (error.response) {
           setLoading(false);
           setError(true);
-          setMessage(error);
+          setMessage(error.response);
         }
       });
   }
@@ -288,6 +288,7 @@ const RegisterAuthPage = () => {
                   className="form-control"
                   id="resume"
                   name="resume_pdf"
+                  required
                 />
                 <label for="resume">Upload resume (Only .pdf files are supported)</label>
               </div>

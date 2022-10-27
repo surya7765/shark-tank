@@ -1,6 +1,7 @@
 import Admin from "../models/Admin.js";
 import UserModel from "../models/User.js";
 import validators from "../validators/UserValidation.js";
+import cloudinary from "../services/cloudinary.js";
 import jwt from 'jsonwebtoken';
 import asyncHandler from 'express-async-handler';
 import bcrypt from 'bcrypt'
@@ -28,6 +29,11 @@ const register = asyncHandler(async (req, res) => {
       // console.log(user);
       if (!user) {
         // const user = await UserModel.create(userData);
+        const upload = await cloudinary.uploader.upload(req.file.path, {
+          use_filename: true,
+          unique_filename: false,
+          overwrite: true,
+        });
         const createUser = await UserModel.create({
           name: userData.name,
           email: userData.email,
@@ -36,6 +42,7 @@ const register = asyncHandler(async (req, res) => {
           address: userData.address,
           workExp: userData.workExp,
           skills: userData.skills,
+          resume: upload?.secure_url,
         });
         if (!createUser) {
           let err = new Error("Registration failed!");

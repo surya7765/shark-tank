@@ -1,0 +1,5 @@
+{
+    "env": {
+        "CLOUDINARY_URL": "YOUR_CLOUDINARY_URL_FROM_DASHBOARD"
+    }
+}
