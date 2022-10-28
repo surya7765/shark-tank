@@ -21,8 +21,8 @@ validators.validateEmail = (email) => {
 };
 
 validators.validatePassword = (pass) => {
-  var paswd=  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,15}$/;
-  if (passw.test(pass)) {
+  var pass=  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,15}$/;
+  if (pass.test(pass)) {
     let err = new Error("Invalid password, please enter password as per specifications");
     err.status = 400;
     throw err;
