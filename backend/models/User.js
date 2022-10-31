@@ -53,10 +53,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // resume: {
-  //   type: String,
-  //   required: true,
-  // },
+  resume: {
+    type: String,
+    required: true,
+  },
 });
 
 const UserModel = mongoose.model("User", userSchema);
